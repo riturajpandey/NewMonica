@@ -1,0 +1,12 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace MonicaLoanApp.Models.Help
+{
+    public class HelpListModel
+    {
+        public string key { get; set; }
+        public string data { get; set; }
+    }
+}

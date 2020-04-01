@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MonicaLoanApp.Views.Popup.LoanApplication.SubmittedLoanApplicationPopup"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:controls="clr-namespace:MonicaLoanApp.Controls">
+    <Grid>
+        <StackLayout x:Name="PopUpBgLayout" />
+        <StackLayout x:Name="PopUpDialogLayout"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical" BackgroundColor="Transparent"
+                     Margin="20">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="singleRouteGrid" Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource AppWhiteColor}" RowSpacing="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <!--Check Image Section-->
+                        <Image Source="checkk.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="Fill" Grid.Row="1" HeightRequest="80" WidthRequest="80"/>
+                        <!--<controls:CustomFrameForOpacity Grid.Row="1" HeightRequest="70" WidthRequest="70" CornerRadius="35" Padding="0" IsClippedToBounds="True"
+                                                 HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                BackgroundColor="{StaticResource BtnColor}" BorderColor="{StaticResource BtnColor}">
+                            <controls:CustomFrameForOpacity HeightRequest="56" WidthRequest="56" CornerRadius="28" Padding="0" IsClippedToBounds="True"
+                                                 HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                BackgroundColor="{StaticResource AppWhiteColor}" BorderColor="{StaticResource AppWhiteColor}">
+                                
+                            </controls:CustomFrameForOpacity>
+
+                        </controls:CustomFrameForOpacity>--> 
+                        <!--You Have Submitted Loan Application-->
+                        <Label Grid.Row="2" Text="You have submitted Loan application" FontFamily="{StaticResource Boldfont}" FontSize="18" TextColor="{StaticResource PurpleColor}" 
+                                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <!--Close Button Section-->
+                        <controls:CustomButton Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Text="Close" Clicked="CustomButton_Clicked"  Margin="50,0,50,0"
+                                            Style="{StaticResource PrimaryButton}" Command="{Binding LoginCommand}"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </Grid>
+</pages:PopupPage>

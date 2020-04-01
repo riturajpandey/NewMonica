@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:MonicaLoanApp.Controls"
+             mc:Ignorable="d"
+             x:Class="MonicaLoanApp.Views.Payments.MakePaymentPage">
+    <ContentPage.Content>
+        <!--Main Grid-->
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--Header Section-->
+                <local:CustomFrameForOpacity Grid.Row="0" Padding="5,0" BackgroundColor="{StaticResource HeaderColor}">
+                    <Grid  HeightRequest="50" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Margin="10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="40"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="5">
+                            <Image Source="back.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding BacksCommand}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+                        <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="Make Payment" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource PrimaryLable}" Margin="10,0"></Label>
+                        </Grid>
+                    </Grid>
+                </local:CustomFrameForOpacity>
+                <!--Main Grid-->
+                <ScrollView Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" Padding="25,50,25,50">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <!--Tabs Section-->
+                        <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnSpacing="0" Padding="15,0,15,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="60*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="GrdTabCard_Tapped"/>
+                                </Grid.GestureRecognizers>
+                                <Frame x:Name="TabCard" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="0" HasShadow="False"
+                                       BackgroundColor="{StaticResource LargeLblColor}" BorderColor="{StaticResource LargeLblColor}">
+                                    <Label x:Name="LblCard" Text="Pay with Card" TextColor="{StaticResource AppWhiteColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                          FontSize="16" FontAttributes="Bold"/>
+                                </Frame>
+                            </Grid>
+                            <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="GrdTabBank_Tapped"/>
+                                </Grid.GestureRecognizers>
+                                <Frame x:Name="TabBank" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="0" HasShadow="False"
+                                       BackgroundColor="{StaticResource AppWhiteColor}" BorderColor="Gray">
+                                    <Label x:Name="LblBank" Text="Pay by bank transfer" TextColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                          FontSize="16" FontAttributes="Bold"/>
+                                </Frame>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Gray"/>
+
+                        <!--Pay with Card Section-->
+                        <Grid Grid.Row="2" x:Name="GrdPayWithCard" IsVisible="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,40,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20,0,20,0">
+                                <Label Text="Loreum ipsum is simply dummy text of the printing the industrys standard dummy text"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                    TextColor="Gray" FontSize="14" FontAttributes="Bold" LineBreakMode="WordWrap"/>
+                            </Grid>
+
+                            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,30,0,0">
+                                <Frame Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="0" HasShadow="False"
+                                     BackgroundColor="{StaticResource AppWhiteColor}" BorderColor="Gray">
+                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10,0,10,0" ColumnSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="1"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="40"/>
+                                                <RowDefinition Height="1"/>
+                                                <RowDefinition Height="40"/>
+                                                <RowDefinition Height="1"/>
+                                                <RowDefinition Height="40"/>
+                                                <RowDefinition Height="1"/>
+                                                <RowDefinition Height="40"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                <Label Text="Name"  HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"
+                                               TextColor="Gray" FontSize="14" LineBreakMode="WordWrap"/>
+                                            </Grid>
+                                            <Grid Grid.Row="1" Opacity="0.5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Gray"/>
+
+                                            <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                <Label Text="Bank"  HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"
+                                               TextColor="Gray" FontSize="14" LineBreakMode="WordWrap"/>
+                                            </Grid>
+                                            <Grid Grid.Row="3" Opacity="0.5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Gray"/>
+
+                                            <Grid Grid.Row="4" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                <Label Text="Account Number"  HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"
+                                               TextColor="Gray" FontSize="14" LineBreakMode="WordWrap"/>
+                                            </Grid>
+                                            <Grid Grid.Row="5" Opacity="0.5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Gray"/>
+
+                                            <Grid Grid.Row="6" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                <Label Text="Reference/Narrartion"  HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"
+                                               TextColor="Gray" FontSize="14" LineBreakMode="WordWrap"/>
+                                            </Grid>
+                                        </Grid>
+                                       
+                                        <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Gray"/>
+
+                                        <Grid Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="40"/>
+                                                <RowDefinition Height="1"/>
+                                                <RowDefinition Height="40"/>
+                                                <RowDefinition Height="1"/>
+                                                <RowDefinition Height="40"/>
+                                                <RowDefinition Height="1"/>
+                                                <RowDefinition Height="40"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                <Label Text="{Binding Name}"  HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
+                                               TextColor="Gray" FontSize="14" LineBreakMode="WordWrap"/>
+                                            </Grid>
+                                            <Grid Grid.Row="1" Opacity="0.5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Gray"/>
+
+                                            <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                <Label Text="{Binding Bank}"  HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
+                                               TextColor="Gray" FontSize="14" LineBreakMode="WordWrap"/>
+                                            </Grid>
+                                            <Grid Grid.Row="3" Opacity="0.5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Gray"/>
+
+                                            <Grid Grid.Row="4" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                <Label Text="{Binding AccountNumber}"  HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
+                                               TextColor="Gray" FontSize="14" LineBreakMode="WordWrap"/>
+                                            </Grid>
+                                            <Grid Grid.Row="5" Opacity="0.5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Gray"/>
+
+                                            <Grid Grid.Row="6" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                <Label Text="{Binding Reference}"  HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
+                                               TextColor="Gray" FontSize="14" LineBreakMode="WordWrap"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </Grid>
+
+                        <!--Pay by Bank Transfer Section-->
+                        <Grid Grid.Row="2" x:Name="GrdPayByBank" IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,50,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="15"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <!--Loan Section-->
+                            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="GrdLoan_Tapped"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="{Binding LoanNumber}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"
+                                       Style="{StaticResource SecondryEntry}" />
+                                <local:CustomPicker Grid.Column="0" IsVisible="False" x:Name="PckLoan" ItemsSource="{Binding LoansList}" ItemDisplayBinding="{Binding loannumber}" Title="Select Loan"  
+                                        SelectedIndexChanged="PckLoan_SelectedIndexChanged" VerticalOptions="CenterAndExpand">
+                                </local:CustomPicker>
+                                <Image Grid.Column="1" Source="down.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                            </Grid>
+                            <Grid Grid.Row="1" Opacity="0.5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Gray"/>
+
+                            <!--Schedule Section-->
+                            <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="GrdSchedule_Tapped"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="{Binding LoanSchedule}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"
+                                       Style="{StaticResource SecondryEntry}" />
+                                <local:CustomPicker Grid.Column="0" IsVisible="False" x:Name="PckSchedule" ItemsSource="{Binding SchedulesList}" ItemDisplayBinding="{Binding loanschedulenumber}" Title="Select Schedule"  
+                                      SelectedIndexChanged="PckSchedule_SelectedIndexChanged" VerticalOptions="CenterAndExpand">
+                                </local:CustomPicker>
+                                <Image Grid.Column="1" Source="down.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                            </Grid>
+                            <Grid Grid.Row="4" Opacity="0.5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Gray"/>
+
+                            <!--Enter amount Section-->
+                            <Grid Grid.Row="6" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <local:CustomEntry Text="{Binding Amount}" Keyboard="Email" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Placeholder="Enter amount you want to pay" Style="{StaticResource SecondryEntry}" />
+                            </Grid>
+                            <Grid Grid.Row="7" Opacity="0.5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Gray"/>
+
+                            <Grid Grid.Row="8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20,40,20,40">
+                                <Label Text="Loreum ipsum is simply dummy text of the printing the industrys standard dummy text"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                    TextColor="Gray" FontSize="14"  LineBreakMode="WordWrap"/>
+                            </Grid>
+
+                            <Grid Grid.Row="9" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <local:CustomButton HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Text="Proceed to Payment" 
+                                     Style="{StaticResource PrimaryButton}" BorderColor="{StaticResource LoginBorderColour}" Command="{Binding PaymentCommand}" Margin="5,0,5,0"></local:CustomButton>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </ScrollView>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Control="clr-namespace:MonicaLoanApp.Controls"
+             mc:Ignorable="d"
+             x:Class="MonicaLoanApp.Views.Help.DebitCardQueries">
+    <ContentPage.Content>
+        <!--Main Grid-->
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--Header Section-->
+            <Control:CustomFrameForOpacity Grid.Row="0" Padding="0" BackgroundColor="{StaticResource FramlgtGrayColor}">
+                <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="5">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BacksCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Image Source="back.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    </Grid>
+                    <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Label Text="Debit card queries" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource PrimaryLable}" Margin="10,0"></Label>
+                    </Grid>
+                    <!--Separator-->
+                    <Grid Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="{StaticResource SeparatorGrayColour}" Opacity="0.5"/>
+                </Grid>
+            </Control:CustomFrameForOpacity>
+            <!--Query Section-->
+            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10,50,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="{Binding key}" HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand" Style="{StaticResource PrimaryLable}" FontAttributes="Bold" FontSize="17"/>
+                <Label Grid.Row="1" Text="{Binding data}" HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand" Style="{StaticResource SecondryGrayLable}"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

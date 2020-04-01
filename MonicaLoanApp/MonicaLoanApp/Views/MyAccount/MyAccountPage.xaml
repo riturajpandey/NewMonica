@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:MonicaLoanApp.Controls"
+             mc:Ignorable="d"
+             IsEnabled="{Binding IsPageEnable}"
+             x:Class="MonicaLoanApp.Views.MyAccount.MyAccountPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <!--Main Grid-->
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <local:CustomFrameForOpacity Grid.Row="0" Padding="5,0" BackgroundColor="{StaticResource FramlgtGrayColor}">
+                    <!--Header Section-->
+                    <Grid  HeightRequest="50" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Margin="10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="40"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="5">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding MenuCommand}"/>
+                            </Grid.GestureRecognizers>
+                            <Image Source="menu.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <!--<Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding MenuCommand}"/>
+                                </Image.GestureRecognizers>-->
+                            </Image>
+                        </Grid>
+                        <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="My Account" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource PrimaryLable}" Margin="10,0"></Label>
+                        </Grid>
+                        <!--<Image Source="menu_circle.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="2" Margin="0,0,10,0"/>-->
+                    </Grid>
+                </local:CustomFrameForOpacity>
+                <ScrollView Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="15" Margin="35">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <!--Home-->
+                        <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PersonalDetailsCommand}"/>
+                            </Grid.GestureRecognizers>
+                            <Image Grid.Column="0" Source="user.png" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <StackLayout Grid.Column="1" Margin="10,0,0,0">
+                                <Label Text="Personal Details" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource PrimaryLable}" FontSize="16" />
+                                <Label Text="{Binding PersonalDetails}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource SmallestLable}" />
+                            </StackLayout>
+                        </Grid>
+                        <Grid BackgroundColor="Black" Opacity="0.2" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" HeightRequest="1" Grid.Row="1" ></Grid>
+                        <!--Address Section-->
+                        <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding AddressCommand}"/>
+                            </Grid.GestureRecognizers>
+                            <Image Grid.Column="0" Source="location.png" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <!--<Label Grid.Column="1" Text="Address" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource PrimaryLable}" Margin="20,0,0,0"/>-->
+                            <StackLayout Grid.Column="1">
+                                <Label Text="Address" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource PrimaryLable}" FontSize="16" Margin="20,0,0,0"/>
+                                <Label Text="{Binding Address}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource SmallestLable}" Margin="20,0,0,0"/>
+                            </StackLayout>
+                        </Grid>
+                        <Grid BackgroundColor="Black" Opacity="0.2" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" HeightRequest="1" Grid.Row="3" ></Grid>
+                        <!--Employement Section-->
+                        <Grid Grid.Row="4" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding EmployementCommand}"/>
+                            </Grid.GestureRecognizers>
+                            <Image Grid.Column="0" Source="profile.png" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <!--<Label Grid.Column="1" Text="Employement" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource PrimaryLable}" Margin="20,0,0,0"/>-->
+                            <StackLayout Grid.Column="1" Margin="10,0,0,0">
+                                <Label Text="Employment" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontSize="16" Style="{StaticResource PrimaryLable}" />
+                                <Label Text="{Binding Employement}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource SmallestLable}" />
+                            </StackLayout>
+                        </Grid>
+                        <Grid BackgroundColor="Black" Opacity="0.2" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" HeightRequest="1" Grid.Row="5" ></Grid>
+                        <!--Bank Details Section-->
+                        <Grid Grid.Row="6" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BankDetailsCommand}"/>
+                            </Grid.GestureRecognizers>
+                            <Image Grid.Column="0" Source="bankblue.png" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <!--<Label Grid.Column="1" Text="Bank Details" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource PrimaryLable}" Margin="20,0,0,0"/>-->
+                            <StackLayout Grid.Column="1" Margin="10,0,0,0">
+                                <Label Text="Bank Details" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontSize="16" Style="{StaticResource PrimaryLable}"/>
+                                <Label Text="{Binding BankDetails}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource SmallestLable}" />
+                            </StackLayout>
+                        </Grid>
+                        <Grid BackgroundColor="Black" Opacity="0.2" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" HeightRequest="1" Grid.Row="7" ></Grid>
+                        <!--setting Section-->
+                        <Grid Grid.Row="8" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding AppSettingCommand}"/>
+                            </Grid.GestureRecognizers>
+                            <Image Grid.Column="0" Source="setting.png" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,-5,0"/>
+                            <Label Grid.Column="1" Text="Your App Settings" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontSize="16" Style="{StaticResource PrimaryLable}" Margin="20,0,0,0"/>
+                        </Grid>
+                        <Grid BackgroundColor="Black" Opacity="0.2" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" HeightRequest="1" Grid.Row="9" ></Grid>
+                        <!--Sign Out Section-->
+                        <Grid Grid.Row="10" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding logoutCommand}"/>
+                            </Grid.GestureRecognizers>
+                            <Image Grid.Column="0" Source="signout.png" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Label Grid.Column="1" Text="Sign Out" HorizontalOptions="StartAndExpand" FontSize="16" VerticalOptions="CenterAndExpand" Style="{StaticResource PrimaryLable}" Margin="10,0,0,0"/>
+                        </Grid>
+                    </Grid>
+                </ScrollView>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

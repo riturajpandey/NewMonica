@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:MonicaLoanApp.Controls"
+             mc:Ignorable="d"
+             x:Class="MonicaLoanApp.Views.Help.HelpPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <!--Main Grid-->
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource AppWhiteColor}">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="70*"/>
+                </Grid.RowDefinitions>
+                <!--Header Section-->
+                <local:CustomFrameForOpacity Grid.Row="0" Padding="5,10" BackgroundColor="{StaticResource FramlgtGrayColor}">
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" HeightRequest="50" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Margin="10,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="40"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="5">
+                                <Image Source="menu.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding MenuCommand}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Grid>
+                            <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Label Text="Help" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource PrimaryLable}" Margin="10,0"></Label>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20,0,20,0">
+                            <Label Text="What can we help you with today?" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" FontAttributes="Bold" Style="{StaticResource PrimaryLable}"/>
+                        </Grid>
+                        <!--Search bar Section-->
+                        <local:CustomFrameForOpacity Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Style="{StaticResource BordorlessFrame}" CornerRadius="0" Margin="20,0,20,0">
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="search.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="25"/>
+                                <local:CustomEntry Text="{Binding Amount}" TextChanged="SearchBar_TextChanged" Keyboard="Email" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Placeholder="Search some keyword" Style="{StaticResource SecondryEntry}"  Grid.Column="1" />
+                            </Grid>
+                        </local:CustomFrameForOpacity>
+                    </Grid>
+                </local:CustomFrameForOpacity>
+                <!--List grid-->
+                <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="15" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="Top Help Questions" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="0" Style="{StaticResource SecondryLable}" />
+                    <ScrollView Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <local:RepeaterView Grid.Row="0" Grid.RowSpan="2" x:Name="lvQuerylist" ItemsSource="{Binding FaqList}"  HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
+                            <local:RepeaterView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <!--Query Section-->
+                                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="LoanDetail_Tapped"/>
+                                            </Grid.GestureRecognizers>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Label Grid.Row="0" Text="{Binding key}" HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand"  Style="{StaticResource PrimaryLable}" FontAttributes="Bold" FontSize="17"/>
+                                            <Label Grid.Row="1" Text="{Binding data}" HorizontalOptions="StartAndExpand" LineBreakMode="TailTruncation"  VerticalOptions="CenterAndExpand" Style="{StaticResource SecondryGrayLable}" />
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </local:RepeaterView.ItemTemplate>
+                        </local:RepeaterView>
+                    </ScrollView>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

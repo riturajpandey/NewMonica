@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MonicaLoanApp.Views.Popup.LoanApplication.LoanProcessedPopup"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:controls="clr-namespace:MonicaLoanApp.Controls">
+    <Grid>
+        <StackLayout x:Name="PopUpBgLayout" />
+        <StackLayout x:Name="PopUpDialogLayout"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                     Orientation="Vertical" BackgroundColor="Transparent" Margin="20">
+            <!--Main Grid-->
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300"/>
+                </Grid.RowDefinitions>
+                <Grid  Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                      Padding="20" BackgroundColor="{StaticResource AppWhiteColor}">
+                    <StackLayout Orientation="Vertical" Spacing="5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <!--The Login Is Being Processed Text-->
+                        <Label Text="The Loan is being Processed" FontFamily="{StaticResource Boldfont}" FontSize="16" TextColor="{StaticResource PurpleColor}" 
+                                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <!--Please Wait Text-->
+                        <Label Text="Please wait." FontFamily="{StaticResource Boldfont}" FontSize="16" TextColor="{StaticResource PurpleColor}" 
+                                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <!--Loader Section-->
+                        <StackLayout Orientation="Horizontal" Spacing="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TranslationY="15">
+                            <controls:CustomFrameForOpacity HeightRequest="10" WidthRequest="10" CornerRadius="5" 
+                                                            Padding="0" BackgroundColor="{StaticResource SkyBlueColor}" 
+                                                            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <controls:CustomFrameForOpacity HeightRequest="10" WidthRequest="10" CornerRadius="5" 
+                                                            Padding="0" BackgroundColor="{StaticResource SkyBlueColor}" 
+                                                            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <controls:CustomFrameForOpacity HeightRequest="10" WidthRequest="10" CornerRadius="5" 
+                                                            Padding="0" BackgroundColor="{StaticResource SkyBlueColor}" 
+                                                            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <controls:CustomFrameForOpacity HeightRequest="10" WidthRequest="10" CornerRadius="5" 
+                                                            Padding="0" BackgroundColor="{StaticResource SkyBlueColor}" 
+                                                            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                        </StackLayout>
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </Grid>
+</pages:PopupPage>

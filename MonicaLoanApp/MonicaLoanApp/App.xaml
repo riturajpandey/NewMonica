@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MonicaLoanApp.App"
+             NavigationPage.HasNavigationBar="False">
+    <Application.Resources>
+        
+        <!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <!--#region Colors -->
+            <!--White-->
+            <Color x:Key="AppWhiteColor">#FFFFFF</Color>
+            <Color x:Key="HeaderWhiteColor">#FFFCFC</Color>
+            <Color x:Key="SideBarWhiteColor">#FDFBFB</Color>
+            <Color x:Key="SideBarHeaderWhiteColor">#FFFDFD</Color>
+
+            <Color x:Key="BlackColour">#000000</Color>
+            <Color x:Key="TransparentColor">Transparent</Color>
+            <Color x:Key="HeaderColor">#FEFEFE</Color>
+            <Color x:Key="LgnFrameColor">#4D2090</Color>
+            <Color x:Key="FramlgtGrayColor">#F8F8F8</Color>
+            <Color x:Key="BtnColor">#04cac3</Color>
+            <Color x:Key="LargeLblColor">#5a3f96</Color>
+            <Color x:Key="MediumLblColor">#5a3f96</Color>
+            <Color x:Key="MediumLblGrayColor">#9E9D9F</Color>
+            <Color x:Key="SmallLblColor">#848386</Color>
+            <Color x:Key="LoanLblColour">#c7caca</Color>
+            <Color x:Key="ForgotPasswordTxtClr">#498AD7</Color>
+            <Color x:Key="DarkGradientColour">#48049c</Color>
+            <Color x:Key="LightGradientColour">#8350f6</Color>
+            <Color x:Key="SeparatorGrayColour">#BCBCBC</Color>
+            <Color x:Key="LoginBorderColour">#6d5297</Color>
+
+            <!--Gray Color-->
+            <Color x:Key="LightGrayColor">#899ca3</Color>
+
+            <!--Black Color-->
+            <Color x:Key="LightBlackColor">#1e1937</Color>
+
+            <!--Purple Color-->
+            <Color x:Key="LightPurpleColor">#8B87A0</Color>
+            <Color x:Key="PurpleColor">#413067</Color>
+
+            <!--Sky Blue Color-->
+            <Color x:Key="SkyBlueColor">#06DED6</Color>
+            
+            <!--#endregion-->
+
+            <!--#region Controls -->
+            
+            <!--#region Frames -->
+            
+            <!--Round White Background Frame-->
+            <Style x:Key="PrimaryFrame" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource AppWhiteColor}"/>
+                <Setter Property="Padding" Value="10,5,10,5" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="IsClippedToBounds" Value="True" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="BorderColor" Value="{StaticResource LoginBorderColour}" />
+            </Style>
+
+            <!--Round light gray frame -->
+            <Style x:Key="PrimaryGrayFrame" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource FramlgtGrayColor}"/>
+                <Setter Property="Padding" Value="10,5,10,5" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="IsClippedToBounds" Value="True" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HeightRequest" Value="50" />
+            </Style>
+
+            <!--Round login frame -->
+            <Style x:Key="LoginFrame" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource LgnFrameColor}"/>
+                <Setter Property="Padding" Value="10,5,10,5" />                
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="IsClippedToBounds" Value="True" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="BorderColor" Value="{StaticResource LoginBorderColour}" />
+            </Style>
+
+            <!--BordorlessFrame-->
+            <Style x:Key="BordorlessFrame" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource AppWhiteColor}"/>
+                <Setter Property="Padding" Value="10,5,10,5" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="IsClippedToBounds" Value="True" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HeightRequest" Value="50" />
+            </Style>
+            <!--#endregion-->
+
+            <!--#region Buttons -->
+            <!--Round Primary Button-->
+            <Style x:Key="PrimaryButton" TargetType="Button">
+                <Setter Property="BorderWidth" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="BackgroundColor" Value="{StaticResource BtnColor}" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="TextColor" Value="{StaticResource AppWhiteColor}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="FontFamily" Value="{DynamicResource Boldfont}" />
+            </Style>
+            <!--#endregion-->
+            
+            <!--#region Entrys -->
+            <!--Primary Login Entry-->
+            <Style x:Key="PrimaryEntry" TargetType="Entry">
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="TextColor" Value="{StaticResource AppWhiteColor}" />
+                <Setter Property="PlaceholderColor" Value="{StaticResource AppWhiteColor}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+            <!--Secondry Entries-->
+            <Style x:Key="SecondryEntry" TargetType="Entry">
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="TextColor" Value="{StaticResource SmallLblColor}" />
+                <Setter Property="PlaceholderColor" Value="{StaticResource SmallLblColor}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+            <!--#endregion-->
+            
+            <!--#region Labels -->
+            
+            <!--Primary Font -->
+            <Style x:Key="PrimaryLable" TargetType="Label">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontFamily" Value="{DynamicResource Boldfont }" />
+                <Setter Property="TextColor" Value="{StaticResource LargeLblColor}" />
+            </Style>
+            <!--Medium Font -->
+            <Style x:Key="SecondryLable" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontFamily" Value="{DynamicResource  Regularfont}" />
+                <Setter Property="TextColor" Value="{StaticResource MediumLblColor}" />
+            </Style>
+          
+            <!--Medium Font Gray-->
+            <Style x:Key="SecondryGrayLable" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontFamily" Value="{DynamicResource  Regularfont}" />
+                <Setter Property="TextColor" Value="{StaticResource MediumLblGrayColor}" />
+            </Style>
+            <!--Small Font -->
+            <Style x:Key="SmallestLable" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontFamily" Value="{DynamicResource  Regularfont}" />
+                <Setter Property="TextColor" Value="{StaticResource SmallLblColor}" />
+            </Style>
+            <!--#endregion-->
+
+            <!--#region Fonts -->
+            <OnPlatform x:TypeArguments="x:String" x:Key="Regularfont">
+                <On Platform="iOS" Value="msreferencesansserif"/>
+                <On Platform="Android" Value="msreferencesansserif.ttf#msreferencesansserif"/>
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="Boldfont">
+                <On Platform="iOS" Value="refsanb"/>
+                <On Platform="Android" Value="refsanb.ttf#refsanb"/>
+            </OnPlatform>           
+            <!--#endregion-->
+            <!--#endregion-->
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

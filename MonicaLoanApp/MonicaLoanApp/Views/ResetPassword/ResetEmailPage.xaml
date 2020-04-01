@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             xmlns:local="clr-namespace:MonicaLoanApp.Controls"
+             mc:Ignorable="d"
+             x:Class="MonicaLoanApp.Views.ResetPassword.ResetEmailPage">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <!--Main Grid-->
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <!--GradientColor Section-->
+                <magic:GradientView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+                    <magic:GradientView.GradientSource >
+                        <magic:LinearGradient Angle="0">
+                            <magic:GradientStop Color="{StaticResource DarkGradientColour}" Offset="0" />
+                            <magic:GradientStop Color="{StaticResource LightGradientColour}" Offset="1" />
+                        </magic:LinearGradient>
+                    </magic:GradientView.GradientSource>
+                </magic:GradientView>
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!--Header Section-->
+                    <local:CustomFrameForOpacity Grid.Row="0" Padding="5,0" BackgroundColor="{StaticResource FramlgtGrayColor}">
+                        <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Margin="10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="5">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BacksCommand}"/>
+                            </Grid.GestureRecognizers>
+                            <Image Source="back.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                        </Grid>
+                        <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="Reset Password" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource SecondryLable}" Margin="10,0"></Label>
+                        </Grid>
+                    </Grid>
+                    </local:CustomFrameForOpacity>
+                    <!--Middle grid-->
+                    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="1">
+                        <ScrollView.Margin>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="0,-50,0,0" />
+                                <On Platform="Android, WinPhone, Windows" Value="0,0,0,0" />
+                            </OnPlatform>
+                        </ScrollView.Margin>
+                        <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="25,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="10"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="10"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <!--Page Count Section-->
+                                <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="active_count.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="0"/>
+                                        <Image Source="right_arrow.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1"/>
+                                        <Image Source="disable_count.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="2"/>
+                                    </Grid>
+                                </Grid>
+                                <!--Email Section-->
+                                <local:CustomFrameForOpacity Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Style="{StaticResource PrimaryFrame}">
+                                    <local:CustomFrameForOpacity.Margin>
+                                        <OnPlatform x:TypeArguments="Thickness">
+                                            <On Platform="iOS" Value="0,-20,0,0" />
+                                            <On Platform="Android, WinPhone, Windows" Value="0,0,0,0" />
+                                        </OnPlatform>
+                                    </local:CustomFrameForOpacity.Margin>
+                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="mailblk.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                        <local:CustomEntry Text="{Binding Email}" Keyboard="Email" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"
+                                                           Placeholder="Email Address" Style="{StaticResource SecondryEntry}" Grid.Column="1" MaxLength="100"/>
+                                    </Grid>
+                                </local:CustomFrameForOpacity>
+                                <!--LoginButton Section-->
+                                <local:CustomButton HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Text="Continue" Style="{StaticResource PrimaryButton}" Command="{Binding SubmitCommand}" Grid.Row="5" Margin="5,0,5,0"></local:CustomButton>
+                            </Grid>
+                        </Grid>
+                    </ScrollView>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

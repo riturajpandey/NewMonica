@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:MonicaLoanApp.Controls"
+             mc:Ignorable="d"
+             x:Class="MonicaLoanApp.Views.MyAccount.AddressPage">
+    <ContentPage.Content>
+        <!--Main Grid-->
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Frame Grid.Row="0" Padding="5,0" BackgroundColor="{StaticResource HeaderColor}">
+                    <!--Header Section-->
+                    <Grid  HeightRequest="50" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Margin="10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="40"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="5">
+                            <Image Source="back.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding BacksCommand}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+                        <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="Address" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource PrimaryLable}" Margin="10,0"></Label>
+                        </Grid>
+                    </Grid>
+                </Frame>
+                <!--Main Grid-->
+                <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="1">
+                    <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource FramlgtGrayColor}">
+                        <Grid  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Margin="30,40" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <!--FirstAddress Section-->
+                            <local:CustomFrameForOpacity Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Style="{StaticResource BordorlessFrame}">
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="location.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                    <local:CustomEntry Text="{Binding AddressOne}"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Placeholder="Address Line 1" Style="{StaticResource SecondryEntry}" Grid.Column="1" />
+                                </Grid>
+                            </local:CustomFrameForOpacity>
+                            <!--SecondAddress Section-->
+                            <local:CustomFrameForOpacity Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Style="{StaticResource BordorlessFrame}">
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="location.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                    <local:CustomEntry Text="{Binding AddressSecond}" Keyboard="Email" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Placeholder="Address Line 2" Style="{StaticResource SecondryEntry}" Grid.Column="1" />
+                                </Grid>
+                            </local:CustomFrameForOpacity>
+                            <!--City Section-->
+                            <local:CustomFrameForOpacity Grid.Row="4" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Style="{StaticResource BordorlessFrame}">
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="city.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                    <local:CustomEntry Text="{Binding City}"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Placeholder="City" Style="{StaticResource SecondryEntry}" Grid.Column="1" />
+                                </Grid>
+                            </local:CustomFrameForOpacity>
+                            <!--State Section-->
+                            <local:CustomFrameForOpacity Grid.Row="6" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Style="{StaticResource BordorlessFrame }">
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="state.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                    <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="40">
+                                        <local:CustomPicker x:Name="pckstate" ItemsSource="{Binding Statelist}" ItemDisplayBinding="{Binding data}" Title="Select State" SelectedIndexChanged="pckstate_SelectedIndexChanged" VerticalOptions="CenterAndExpand">
+
+                                        </local:CustomPicker>
+                                        <Image Source="down.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                    </StackLayout>
+                                </Grid>
+                            </local:CustomFrameForOpacity>
+                            <!--Save Section-->
+                            <local:CustomButton HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Text="Save" Style="{StaticResource PrimaryButton}" BorderColor="{StaticResource LoginBorderColour}" Command="{Binding SaveCommand}" Grid.Row="8" Margin="5,0,5,0"></local:CustomButton>
+                        </Grid>
+                    </Grid>
+                </ScrollView>
+
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

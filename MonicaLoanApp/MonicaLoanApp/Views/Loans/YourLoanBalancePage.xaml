@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MonicaLoanApp.Views.Loans.YourLoanBalancePage"
+             xmlns:controls="clr-namespace:MonicaLoanApp.Controls"
+             NavigationPage.HasNavigationBar="False">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <!--Set Background Image-->
+        <Image Source="home_background.png" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        <!--Main Grid-->
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="15,0,25,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--Navigation Bar And Loan Balance Section-->
+            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="5">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding MenuCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Image Source="menuwhite.png" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TranslationX="-5"/>
+                    </Grid>
+                </Grid>
+                <!--Your Loan Balance Section-->
+                <StackLayout Grid.Row="1" Spacing="5" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                    <!--Amount Text-->
+                    <Label Text="Your Loan Balance" FontFamily="{StaticResource Regularfont}" FontSize="16" TextColor="{StaticResource SkyBlueColor}" 
+                                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <!--Due Soon Text-->
+                    <Label Text="{Binding LoanAmount}" FontFamily="{StaticResource Boldfont}" FontSize="25" TextColor="{StaticResource AppWhiteColor}" 
+                                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </StackLayout>
+            </Grid>
+            <!--Circle Image-->
+            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <controls:CustomFrameForOpacity HeightRequest="230" WidthRequest="230" CornerRadius="115" Padding="0" IsClippedToBounds="True"
+                                                 HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                BackgroundColor="Transparent" BorderColor="{StaticResource LightGrayColor}">
+                    <controls:CustomFrameForOpacity HeightRequest="200" WidthRequest="200" CornerRadius="100" Padding="0" IsClippedToBounds="True"
+                                                 HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                BackgroundColor="{StaticResource LightBlackColor}" BorderColor="{StaticResource LightBlackColor}">
+                        <StackLayout Spacing="3" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <!--Amount Text-->
+                            <Label Text="{Binding DueAmount}" FontFamily="{StaticResource Regularfont}" FontSize="16" TextColor="{StaticResource AppWhiteColor}" 
+                                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <!--Due Soon Text-->
+                            <Label Text="Due Soon" FontFamily="{StaticResource Regularfont}" FontSize="16" TextColor="{StaticResource LightPurpleColor}" 
+                                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </controls:CustomFrameForOpacity>
+
+                </controls:CustomFrameForOpacity>
+            </Grid>
+            <!--Plus Image And Detail Image Section-->
+            <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10,0,0,40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!--Plus Image Section-->
+                <controls:CustomFrameForOpacity Grid.Column="0" HeightRequest="70" WidthRequest="70" CornerRadius="35" Padding="0" IsClippedToBounds="True"
+                                                 HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"
+                                                BackgroundColor="{StaticResource AppWhiteColor}" BorderColor="{StaticResource AppWhiteColor}">
+                    <d:CustomFrameForOpacity.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </d:CustomFrameForOpacity.GestureRecognizers>
+                    <controls:CustomFrameForOpacity HeightRequest="64" WidthRequest="64" CornerRadius="32" Padding="0" IsClippedToBounds="True"
+                                                 HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                BackgroundColor="{StaticResource SkyBlueColor}" BorderColor="{StaticResource SkyBlueColor}">
+                        <Image Source="plus_black.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="40" WidthRequest="40"/>
+                    </controls:CustomFrameForOpacity>
+                    <controls:CustomFrameForOpacity.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PlusCommand}"/>
+                    </controls:CustomFrameForOpacity.GestureRecognizers>
+                </controls:CustomFrameForOpacity>
+                <!--Detail Image Section-->
+                <controls:CustomFrameForOpacity Grid.Column="1" HeightRequest="70" WidthRequest="70" CornerRadius="35" Padding="0" IsClippedToBounds="True"
+                                                 HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"
+                                                BackgroundColor="{StaticResource AppWhiteColor}" BorderColor="{StaticResource AppWhiteColor}">
+                    <d:CustomFrameForOpacity.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="listTapGestureRecognizer_Tapped"/>
+                    </d:CustomFrameForOpacity.GestureRecognizers>
+                    <controls:CustomFrameForOpacity HeightRequest="64" WidthRequest="64" CornerRadius="32" Padding="0" IsClippedToBounds="True"
+                                                 HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                BackgroundColor="{StaticResource SkyBlueColor}" BorderColor="{StaticResource SkyBlueColor}">
+                        <Image Source="list.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="40" WidthRequest="40"/>
+                    </controls:CustomFrameForOpacity>
+                    <controls:CustomFrameForOpacity.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ListCommand}"/>
+                    </controls:CustomFrameForOpacity.GestureRecognizers>
+                </controls:CustomFrameForOpacity>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>
